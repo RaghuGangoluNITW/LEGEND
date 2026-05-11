@@ -1,4 +1,4 @@
-# LEGEND: Lorentzian EEG–ESG–EMG Graph Neural Network for Neural Bypass
+# LEGEND: Lorentzian Electro-modal Graph Encoder for Neural Decoding for SCI Rehabilitation
 
 **Manuscript:** "LEGEND: Lorentzian Electro-modal Graph Encoder for Neural Decoding for SCI Rehabilitation"  
 **Journal:** Computers in Biology and Medicine (submission ID CIBM-D-26-01579)
