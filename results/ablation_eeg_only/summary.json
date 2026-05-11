@@ -1,0 +1,40 @@
+{
+  "mean_acc": 32.463265677899244,
+  "std_acc": 7.263003996139969,
+  "modalities": [
+    "eeg"
+  ],
+  "gnn_layers": 2,
+  "per_subject": {
+    "NIS001": 32.8003120124805,
+    "NIS002": 22.234513274336283,
+    "NIS003": 36.01317957166392,
+    "NIS004": 27.961783439490446,
+    "NIS005": 29.189944134078214,
+    "NIS006": 33.365949119373774,
+    "NIS007": 43.772990015764584,
+    "NIS008": 37.604166666666664,
+    "NIS009": 20.38547071905115,
+    "NIS010": 41.30434782608695
+  },
+  "args": {
+    "data_dir": "data/steele",
+    "results_dir": "results/ablation_eeg_only",
+    "modalities": "eeg",
+    "epochs": 100,
+    "batch_size": 16,
+    "lr": 0.0005,
+    "hidden_dim": 64,
+    "latent_dim": 48,
+    "gnn_hidden": 48,
+    "gnn_layers": 2,
+    "gnn_heads": 2,
+    "k_cross": 6,
+    "dropout": 0.5,
+    "patience": 20,
+    "t_stride": 4,
+    "device": "cuda",
+    "seed": 42,
+    "resume": true
+  }
+}

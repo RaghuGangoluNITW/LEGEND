@@ -1,0 +1,35 @@
+{
+  "model": "EuclideanTriModalGNN",
+  "mean_acc": 48.93946675868223,
+  "std_acc": 13.426504503169769,
+  "per_subject": {
+    "NIS001": 36.07644305772231,
+    "NIS002": 52.43362831858407,
+    "NIS003": 19.43986820428336,
+    "NIS004": 45.35031847133758,
+    "NIS005": 49.23184357541899,
+    "NIS006": 40.94911937377691,
+    "NIS007": 59.43247503941146,
+    "NIS008": 66.14583333333333,
+    "NIS009": 63.30615270570793,
+    "NIS010": 57.028985507246375
+  },
+  "args": {
+    "data_dir": "data/steele",
+    "results_dir": "results/euclidean_gnn_loso",
+    "epochs": 100,
+    "batch_size": 16,
+    "lr": 0.0005,
+    "hidden_dim": 64,
+    "latent_dim": 48,
+    "gnn_hidden": 48,
+    "gnn_layers": 2,
+    "gnn_heads": 2,
+    "k_cross": 6,
+    "dropout": 0.5,
+    "patience": 20,
+    "t_stride": 4,
+    "device": "cuda",
+    "seed": 42
+  }
+}

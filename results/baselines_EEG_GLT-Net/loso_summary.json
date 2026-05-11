@@ -1,0 +1,29 @@
+{
+  "model": "EEG_GLT-Net",
+  "mean_acc": 30.634152759585465,
+  "std_acc": 5.960805279653188,
+  "per_subject": {
+    "NIS001": 19.929797191887676,
+    "NIS002": 36.559734513274336,
+    "NIS003": 37.56177924217463,
+    "NIS004": 20.191082802547772,
+    "NIS005": 30.446927374301676,
+    "NIS006": 35.420743639921724,
+    "NIS007": 34.47188649500788,
+    "NIS008": 28.125,
+    "NIS009": 32.76501111934766,
+    "NIS010": 30.869565217391305
+  },
+  "args": {
+    "data_dir": "data/steele",
+    "results_dir": "results/baselines_EEG_GLT-Net",
+    "model": "EEG_GLT-Net",
+    "epochs": 150,
+    "patience": 25,
+    "batch_size": 32,
+    "lr": 0.001,
+    "dropout": 0.5,
+    "device": "cuda",
+    "seed": 42
+  }
+}

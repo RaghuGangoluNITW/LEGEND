@@ -1,0 +1,68 @@
+Device: cuda
+================================================================================
+BCI-IV-2a ADAPTIVE - ALL 9 SUBJECTS
+================================================================================
+Baseline mean: 42.94%
+Augmentation ON:  5 subjects
+Augmentation OFF: 4 subjects
+================================================================================
+Training:   0%|          | 0/9 [00:00<?, ?it/s]/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+Training:  11%|█         | 1/9 [00:25<03:27, 25.98s/it]/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+✅ S01: 70.83% (Aug: False)
+Training:  22%|██▏       | 2/9 [00:49<02:50, 24.42s/it]/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+✅ S02: 96.88% (Aug: False)
+Training:  33%|███▎      | 3/9 [01:14<02:29, 24.92s/it]/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+✅ S03: 83.33% (Aug: False)
+Training:  44%|████▍     | 4/9 [01:29<01:44, 20.94s/it]/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+✅ S04: 100.00% (Aug: False)
+Training:  56%|█████▌    | 5/9 [01:54<01:30, 22.52s/it]/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+✅ S05: 99.31% (Aug: False)
+Training:  67%|██████▋   | 6/9 [02:14<01:04, 21.42s/it]/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+✅ S06: 100.00% (Aug: False)
+Training:  78%|███████▊  | 7/9 [02:35<00:42, 21.46s/it]/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+✅ S07: 80.21% (Aug: False)
+Training:  89%|████████▉ | 8/9 [02:58<00:21, 21.94s/it]/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+/home/supermicro/anaconda3/lib/python3.13/contextlib.py:148: RuntimeWarning: Channel names are not unique, found duplicates for: {'EEG'}. Applying running numbers for duplicates.
+  next(self.gen)
+✅ S08: 100.00% (Aug: False)
+Training: 100%|██████████| 9/9 [03:14<00:00, 19.96s/it]Training: 100%|██████████| 9/9 [03:14<00:00, 21.60s/it]
+✅ S09: 76.39% (Aug: False)
+
+================================================================================
+FINAL RESULTS - BCI-IV-2a Adaptive (9 Subjects)
+================================================================================
+Mean: 89.66% ± 11.18%
+Min:  70.83%
+Max:  100.00%
+
+Baseline: 42.94%
+Adaptive: 89.66%
+Δ: +46.72%
+================================================================================
+
+💾 Saved: bciciv2a_results_adaptive_full.pkl

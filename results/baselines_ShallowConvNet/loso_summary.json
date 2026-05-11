@@ -1,0 +1,29 @@
+{
+  "model": "ShallowConvNet",
+  "mean_acc": 33.96760628563409,
+  "std_acc": 7.233514362333025,
+  "per_subject": {
+    "NIS001": 23.32293291731669,
+    "NIS002": 24.391592920353983,
+    "NIS003": 40.0,
+    "NIS004": 34.5859872611465,
+    "NIS005": 26.955307262569832,
+    "NIS006": 30.136986301369863,
+    "NIS007": 37.78244876510772,
+    "NIS008": 47.239583333333336,
+    "NIS009": 37.4351371386212,
+    "NIS010": 37.82608695652174
+  },
+  "args": {
+    "data_dir": "data/steele",
+    "results_dir": "results/baselines_ShallowConvNet",
+    "model": "ShallowConvNet",
+    "epochs": 150,
+    "patience": 25,
+    "batch_size": 32,
+    "lr": 0.001,
+    "dropout": 0.5,
+    "device": "cuda",
+    "seed": 42
+  }
+}

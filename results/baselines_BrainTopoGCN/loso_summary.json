@@ -1,0 +1,29 @@
+{
+  "model": "BrainTopoGCN",
+  "mean_acc": 35.84214617607436,
+  "std_acc": 7.049642115350022,
+  "per_subject": {
+    "NIS001": 47.03588143525741,
+    "NIS002": 35.61946902654867,
+    "NIS003": 34.89291598023064,
+    "NIS004": 23.37579617834395,
+    "NIS005": 32.47206703910614,
+    "NIS006": 42.22113502935421,
+    "NIS007": 33.47346295323174,
+    "NIS008": 28.229166666666668,
+    "NIS009": 45.8117123795404,
+    "NIS010": 35.289855072463766
+  },
+  "args": {
+    "data_dir": "data/steele",
+    "results_dir": "results/baselines_BrainTopoGCN",
+    "model": "BrainTopoGCN",
+    "epochs": 150,
+    "patience": 25,
+    "batch_size": 32,
+    "lr": 0.001,
+    "dropout": 0.5,
+    "device": "cuda",
+    "seed": 42
+  }
+}
