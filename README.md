@@ -180,7 +180,7 @@ All experiments were run on a single consumer GPU (NVIDIA GeForce RTX 2050, 4 GB
 
 ## Citation
 
-> [Manuscript under review — CIBM-D-26-01579 — citation will be added upon acceptance]
+> [Manuscript under review  CIBM-D-26-01579  citation will be added upon acceptance]
 
 ---
 
