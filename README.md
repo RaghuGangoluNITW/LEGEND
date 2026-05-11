@@ -1,153 +1,189 @@
-# LEGEND: Lorentzian EEG-ESG-EMG Graph Neural Network for Neural Bypass
+# LEGEND: Lorentzian EEG–ESG–EMG Graph Neural Network for Neural Bypass
 
-[![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+**Manuscript:** "LEGEND: A Tri-Modal Lorentzian Hyperbolic Graph Neural Network for Spinal Cord Injury Neural Bypass"  
+**Journal:** Computers in Biology and Medicine (submission ID CIBM-D-26-01579)
 
-Code and results for the CIBM submission **"LEGEND: A Tri-Modal Lorentzian Hyperbolic Graph Neural Network for Spinal Cord Injury Neural Bypass"** (manuscript ID CIBM-D-26-01579).
+This repository contains the complete source code and all pre-computed results needed to verify the results reported in the manuscript **without re-running training**.
 
 ---
 
-## Repository Layout
+## Repository Structure
 
 ```
 git-legend/
-├── src/lorentz_tcnet/        # Core model source code
-│   ├── model.py              # TriModalLorentzNet (main model)
-│   ├── model_hybrid.py       # Hybrid variant used in LOSO experiments
-│   ├── gnn_head.py           # Lorentzian GNN head
-│   ├── graph.py              # Graph construction (cortico-spinal-muscular)
-│   ├── train.py              # Training loop
-│   ├── data.py               # Data loading & preprocessing
-│   ├── metrics.py            # Evaluation metrics
-│   └── config.py             # Hyperparameter defaults
-├── scripts/                  # All experiment entry points
-│   ├── train_hybrid_loso.py          # Main Steele LOSO experiment (Table 1)
-│   ├── train_loso.py                 # Original LOSO baseline
-│   ├── train_steele_baselines.py     # EEGNet / ShallowConvNet / BrainTopoGCN / EEG-GLT-Net / SAMGCN
-│   ├── train_ablation_loso.py        # Ablations (EEG-only, no-EMG, no-ESG)
-│   ├── train_bciciv2a.py             # BCI-IV-2a LOSO (clean, no leakage)
-│   ├── train_physionet_full.py       # PhysioNet LOSO
-│   ├── generate_publication_figures.py
-│   └── ...
+├── src/
+│   └── lorentz_tcnet/              # Core model implementation
+│       ├── model_hybrid.py         # TriModalLorentzNet (main model, Table 1)
+│       ├── model.py                # Base model
+│       ├── gnn_head.py             # Lorentzian hyperbolic GNN head
+│       ├── graph.py                # Cortico-spinal-muscular graph builder
+│       ├── train.py                # Training loop & early stopping
+│       ├── data.py                 # Dataset loading & windowing
+│       ├── metrics.py              # Accuracy, balanced accuracy
+│       └── config.py               # Hyperparameter defaults
+│
+├── scripts/
+│   ├── train_hybrid_loso.py        # → Table 1: LEGEND LOSO (Steele dataset)
+│   ├── train_steele_baselines.py   # → Table 1: EEGNet / ShallowConvNet / BrainTopoGCN / EEG-GLT-Net / SAMGCN
+│   ├── train_ablation_loso.py      # → Table 2: EEG-only / no-EMG / no-ESG ablations
+│   ├── train_euclidean_gnn_loso.py # → Table 2: Euclidean GNN ablation (Lorentzian vs flat)
+│   ├── train_bciciv2a.py           # → Table 3: BCI-IV-2a LOSO (cross-subject)
+│   ├── train_physionet_full.py     # → Table 3: PhysioNet LOSO
+│   ├── convert_steele_mat.py       # Data: convert .mat files to numpy arrays
+│   ├── preprocess_physionet_data.py # Data: preprocess PhysioNet EEG
+│   ├── reextract_pathways.py       # Figure 5: pathway attribution (Grad-CAM)
+│   ├── validate_pathway_anatomy.py # Figure 5: anatomical plausibility check
+│   ├── generate_publication_figures.py # All manuscript figures
+│   └── measure_cpu_latency.py      # Table 4: inference latency
+│
 ├── configs/
-│   ├── default.yaml          # Steele dataset hyperparameters
-│   └── physionet_config.yaml # PhysioNet hyperparameters
+│   ├── default.yaml                # Steele dataset hyperparameters
+│   └── physionet_config.yaml       # PhysioNet hyperparameters
+│
 ├── results/
-│   ├── hybrid_loso_v7/       # LEGEND LOSO — all 10 folds (fold_result.json per fold)
-│   ├── baselines_EEGNet/     # EEGNet LOSO results
-│   ├── baselines_ShallowConvNet/
-│   ├── baselines_BrainTopoGCN/
-│   ├── baselines_EEG_GLT-Net/
-│   ├── baselines_SAMGCN/
-│   ├── euclidean_gnn_loso/   # Euclidean ablation (hyperbolic vs flat geometry)
-│   ├── ablation_eeg_only/    # EEG-only ablation
-│   ├── ablation_no_emg/      # No EMG ablation
-│   ├── ablation_no_esg/      # No ESG ablation
-│   ├── pathways_annotated.csv
-│   └── cpu_latency.json
-├── logs/                     # Raw training logs
-├── *.pkl                     # Serialised per-fold result dictionaries
+│   ├── hybrid_loso_v7/fold_NIS*/fold_result.json   # LEGEND per-fold results (Table 1)
+│   ├── baselines_EEGNet/           # EEGNet LOSO results
+│   ├── baselines_ShallowConvNet/   # ShallowConvNet LOSO results
+│   ├── baselines_BrainTopoGCN/     # BrainTopoGCN LOSO results
+│   ├── baselines_EEG_GLT-Net/      # EEG-GLT-Net LOSO results
+│   ├── baselines_SAMGCN/           # SAMGCN LOSO results
+│   ├── euclidean_gnn_loso/         # Euclidean GNN ablation (Table 2 last row)
+│   ├── ablation_eeg_only/          # EEG-only ablation
+│   ├── ablation_no_emg/            # No EMG ablation
+│   ├── ablation_no_esg/            # No ESG ablation
+│   ├── pathways_annotated.csv      # Figure 5 data
+│   └── cpu_latency.json            # Table 4 latency numbers
+│
+├── physionet_full_results_final.pkl    # PhysioNet LOSO results (Table 3)
+├── physionet_results_adaptive_full.pkl # PhysioNet adaptive results
+├── bciciv2a_results_final.pkl          # BCI-IV-2a LOSO results (Table 3)
+├── steele_results_phase4.pkl           # Steele training history
+├── steele_results_enhanced.pkl         # Steele enhanced training history
+├── logs/                           # Training logs (BCI-IV-2a, PhysioNet)
 ├── requirements.txt
 └── pyproject.toml
 ```
 
 ---
 
-## Environment Setup
+## Verifying Results Without Re-Training
 
-```bash
-python -m venv .venv
-# Windows:
-.venv\Scripts\activate
-# Linux/macOS:
-source .venv/bin/activate
+All manuscript numbers can be verified directly from the pre-computed JSON files:
 
-pip install -r requirements.txt
+```python
+import json, glob, numpy as np, pickle
+
+# ── Table 1: LEGEND LOSO on Steele dataset ──────────────────────────────────
+folds = [json.load(open(f))
+         for f in sorted(glob.glob("results/hybrid_loso_v7/fold_NIS*/fold_result.json"))]
+accs = [f["test_acc"] for f in folds]
+print(f"LEGEND LOSO (Steele): {np.mean(accs)*100:.2f} ± {np.std(accs)*100:.2f}%")
+# Expected: 56.51 ± 12.27%
+
+# ── Table 1: EEGNet baseline ─────────────────────────────────────────────────
+baseline = json.load(open("results/baselines_EEGNet/loso_summary.json"))
+print(f"EEGNet LOSO: {baseline['mean_acc']*100:.2f} ± {baseline['std_acc']*100:.2f}%")
+
+# ── Table 2: Euclidean GNN ablation ──────────────────────────────────────────
+euc = json.load(open("results/euclidean_gnn_loso/loso_summary.json"))
+print(f"EuclideanGNN LOSO: {euc['mean_acc']*100:.2f}%  (vs LEGEND {np.mean(accs)*100:.2f}%)")
+
+# ── Table 3: PhysioNet & BCI-IV-2a ───────────────────────────────────────────
+with open("physionet_full_results_final.pkl", "rb") as fh:
+    physio = pickle.load(fh)
+print("PhysioNet:", physio)
+
+with open("bciciv2a_results_final.pkl", "rb") as fh:
+    bci = pickle.load(fh)
+print("BCI-IV-2a:", bci)
 ```
-
-**Key dependencies:** PyTorch ≥ 2.1, torch-geometric, MNE, scikit-learn, numpy, scipy, matplotlib, pyyaml.
 
 ---
 
-## Reproducing Results
+## Reproducing Results from Scratch
 
-### Data
-
-The Steele et al. (2023) dataset (10 SCI participants, tri-modal EEG/ESG/EMG) is available from the [original authors](https://doi.org/10.1016/j.brs.2023.01.004). Place the `.mat` files under `data/steele_dataset/`.
-
-BCI-IV-2a `.gdf` files: [BNCI Horizon 2020](http://bnci-horizon-2020.eu/database/data-sets).  
-PhysioNet EEG MMIDB: `mne.datasets.eegbci.load_data()` (auto-downloaded by MNE).
-
-### Main Tri-Modal LOSO Results (Table 1)
+### 1. Environment
 
 ```bash
-python scripts/train_hybrid_loso.py --config configs/default.yaml
+python -m venv .venv
+# Windows:  .venv\Scripts\activate
+# Linux/Mac: source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-Results are written to `results/hybrid_loso_v7/fold_NIS*/fold_result.json`.
+### 2. Data
 
-### Baselines (Table 1 comparison rows)
+| Dataset | Source | Notes |
+|---|---|---|
+| Steele et al. 2023 (tri-modal EEG/ESG/EMG, 10 SCI subjects) | Contact original authors (DOI: 10.1016/j.brs.2023.01.004) | Place `.mat` files in `data/steele_dataset/` |
+| BCI Competition IV Dataset 2a | [bnci-horizon-2020.eu](http://bnci-horizon-2020.eu/database/data-sets) | Place `.gdf` files in `data/bciciv_2a/` |
+| PhysioNet EEG Motor Movement/Imagery (EEGMMI) | Auto-downloaded by MNE | Run `python scripts/preprocess_physionet_data.py` |
+
+Convert Steele `.mat` to numpy:
+```bash
+python scripts/convert_steele_mat.py --input data/steele_dataset/ --output data/steele/
+```
+
+### 3. Re-run Each Experiment
 
 ```bash
+# Table 1 — LEGEND LOSO (main result)
+python scripts/train_hybrid_loso.py --config configs/default.yaml
+
+# Table 1 — All 5 baselines
 python scripts/train_steele_baselines.py --model EEGNet
 python scripts/train_steele_baselines.py --model ShallowConvNet
 python scripts/train_steele_baselines.py --model BrainTopoGCN
 python scripts/train_steele_baselines.py --model EEG-GLT-Net
 python scripts/train_steele_baselines.py --model SAMGCN
-```
 
-### Ablations (Table 2)
-
-```bash
+# Table 2 — Ablations
 python scripts/train_ablation_loso.py --ablation eeg_only
 python scripts/train_ablation_loso.py --ablation no_emg
 python scripts/train_ablation_loso.py --ablation no_esg
+python scripts/train_euclidean_gnn_loso.py
+
+# Table 3 — Cross-dataset
+python scripts/train_bciciv2a.py --loso          # BCI-IV-2a LOSO
+python scripts/train_physionet_full.py            # PhysioNet LOSO
+
+# Figure 5 — Pathway attributions
+python scripts/reextract_pathways.py
+python scripts/validate_pathway_anatomy.py
+
+# All figures
+python scripts/generate_publication_figures.py
 ```
 
-### BCI-IV-2a LOSO (Table 3)
+### 4. Hardware
 
-```bash
-python scripts/train_bciciv2a.py --loso
-```
-
-### PhysioNet LOSO (Table 3)
-
-```bash
-python scripts/train_physionet_full.py
-```
+All experiments were run on a single consumer GPU (NVIDIA GeForce RTX 2050, 4 GB VRAM). Each LOSO fold trains in approximately 5–10 minutes. Full 10-fold LOSO takes 50–100 minutes per experiment.
 
 ---
 
-## Pre-computed Results
+## Key Results (from pre-computed files)
 
-All numerical results reported in the manuscript are available in `results/*/fold_result.json` and the `*.pkl` files at the repository root. Reviewers can verify every number without re-running training:
-
-```python
-import pickle, json, glob, numpy as np
-
-# LEGEND LOSO on Steele dataset
-folds = [json.load(open(f)) for f in sorted(glob.glob("results/hybrid_loso_v7/fold_*/fold_result.json"))]
-accs = [f["test_acc"] for f in folds]
-print(f"LEGEND LOSO: {np.mean(accs)*100:.2f} ± {np.std(accs)*100:.2f}%")
-
-# PhysioNet
-with open("physionet_full_results_final.pkl","rb") as fh:
-    r = pickle.load(fh)
-print(r)
-```
+| Experiment | Result | Table |
+|---|---|---|
+| LEGEND tri-modal LOSO (Steele) | **56.51 ± 12.27%** | Table 1 |
+| EEGNet LOSO | 35.1% | Table 1 |
+| ShallowConvNet LOSO | 37.8% | Table 1 |
+| BrainTopoGCN LOSO | 40.2% | Table 1 |
+| EEG-GLT-Net LOSO | 42.1% | Table 1 |
+| SAMGCN LOSO | 44.8% | Table 1 |
+| EEG-only ablation | ~38% | Table 2 |
+| Euclidean GNN LOSO | 48.94 ± 13.43% | Table 2 |
+| BCI-IV-2a LOSO (first published) | **42.9 ± 7.0%** | Table 3 |
+| PhysioNet LOSO | **80.5 ± 10.5%** | Table 3 |
 
 ---
 
 ## Citation
 
-If you use this code or results, please cite:
-
-```
-[Manuscript under review — CIBM-D-26-01579]
-```
+> [Manuscript under review — CIBM-D-26-01579 — citation will be added upon acceptance]
 
 ---
 
 ## License
 
-MIT License. See [LICENSE](LICENSE) for details.
+MIT License. See [LICENSE](LICENSE).
