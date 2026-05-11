@@ -1,6 +1,6 @@
 # LEGEND: Lorentzian EEG–ESG–EMG Graph Neural Network for Neural Bypass
 
-**Manuscript:** "LEGEND: A Tri-Modal Lorentzian Hyperbolic Graph Neural Network for Spinal Cord Injury Neural Bypass"  
+**Manuscript:** "LEGEND: Lorentzian Electro-modal Graph Encoder for Neural Decoding for SCI Rehabilitation"  
 **Journal:** Computers in Biology and Medicine (submission ID CIBM-D-26-01579)
 
 This repository contains the complete source code and all pre-computed results needed to verify the results reported in the manuscript **without re-running training**.
