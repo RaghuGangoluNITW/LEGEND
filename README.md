@@ -1,7 +1,7 @@
 # LEGEND: Lorentzian Electro-modal Graph Encoder for Neural Decoding for SCI Rehabilitation
 
 **Manuscript:** "LEGEND: Lorentzian Electro-modal Graph Encoder for Neural Decoding for SCI Rehabilitation"  
-**Journal:** Computers in Biology and Medicine (submission ID CIBM-D-26-01579)
+**Journal:** Computers in Biology and Medicine
 
 This repository contains the complete source code and all pre-computed results needed to verify the results reported in the manuscript **without re-running training**.
 
@@ -180,7 +180,7 @@ All experiments were run on a single consumer GPU (NVIDIA GeForce RTX 2050, 4 GB
 
 ## Citation
 
-> [Manuscript under review  CIBM-D-26-01579  citation will be added upon acceptance]
+> [Manuscript under review  citation will be added upon acceptance]
 
 ---
 
