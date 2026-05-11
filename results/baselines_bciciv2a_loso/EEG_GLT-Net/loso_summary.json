@@ -1,0 +1,55 @@
+{
+  "model": "EEG_GLT-Net",
+  "protocol": "LOSO",
+  "dataset": "BCI-IV-2a",
+  "n_subjects": 9,
+  "mean_acc": 64.66,
+  "std_acc": 6.62,
+  "per_subject": [
+    {
+      "subject": "A01",
+      "test_acc": 62.5,
+      "best_val_acc": 64.501679731243
+    },
+    {
+      "subject": "A02",
+      "test_acc": 62.5,
+      "best_val_acc": 64.501679731243
+    },
+    {
+      "subject": "A03",
+      "test_acc": 62.5,
+      "best_val_acc": 64.501679731243
+    },
+    {
+      "subject": "A04",
+      "test_acc": 83.33333333333333,
+      "best_val_acc": 62.47288503253796
+    },
+    {
+      "subject": "A05",
+      "test_acc": 61.111111111111114,
+      "best_val_acc": 59.46248600223964
+    },
+    {
+      "subject": "A06",
+      "test_acc": 62.5,
+      "best_val_acc": 64.501679731243
+    },
+    {
+      "subject": "A07",
+      "test_acc": 62.5,
+      "best_val_acc": 64.501679731243
+    },
+    {
+      "subject": "A08",
+      "test_acc": 62.5,
+      "best_val_acc": 64.501679731243
+    },
+    {
+      "subject": "A09",
+      "test_acc": 62.5,
+      "best_val_acc": 64.501679731243
+    }
+  ]
+}

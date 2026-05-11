@@ -1,0 +1,55 @@
+{
+  "model": "BrainTopoGCN",
+  "protocol": "LOSO",
+  "dataset": "BCI-IV-2a",
+  "n_subjects": 9,
+  "mean_acc": 38.81,
+  "std_acc": 12.94,
+  "per_subject": [
+    {
+      "subject": "A01",
+      "test_acc": 53.81944444444444,
+      "best_val_acc": 62.5
+    },
+    {
+      "subject": "A02",
+      "test_acc": 28.125,
+      "best_val_acc": 65.27777777777777
+    },
+    {
+      "subject": "A03",
+      "test_acc": 55.55555555555556,
+      "best_val_acc": 58.7962962962963
+    },
+    {
+      "subject": "A04",
+      "test_acc": 20.833333333333332,
+      "best_val_acc": 59.219088937093275
+    },
+    {
+      "subject": "A05",
+      "test_acc": 26.041666666666668,
+      "best_val_acc": 67.36111111111111
+    },
+    {
+      "subject": "A06",
+      "test_acc": 29.86111111111111,
+      "best_val_acc": 63.19444444444444
+    },
+    {
+      "subject": "A07",
+      "test_acc": 37.84722222222222,
+      "best_val_acc": 58.7962962962963
+    },
+    {
+      "subject": "A08",
+      "test_acc": 40.625,
+      "best_val_acc": 55.78703703703704
+    },
+    {
+      "subject": "A09",
+      "test_acc": 56.59722222222222,
+      "best_val_acc": 59.49074074074074
+    }
+  ]
+}

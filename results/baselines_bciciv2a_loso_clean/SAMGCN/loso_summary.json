@@ -1,0 +1,55 @@
+{
+  "model": "SAMGCN",
+  "protocol": "LOSO",
+  "dataset": "BCI-IV-2a",
+  "n_subjects": 9,
+  "mean_acc": 28.86,
+  "std_acc": 6.6,
+  "per_subject": [
+    {
+      "subject": "A01",
+      "test_acc": 38.19444444444444,
+      "best_val_acc": 36.80555555555556
+    },
+    {
+      "subject": "A02",
+      "test_acc": 28.819444444444443,
+      "best_val_acc": 40.50925925925926
+    },
+    {
+      "subject": "A03",
+      "test_acc": 36.458333333333336,
+      "best_val_acc": 35.416666666666664
+    },
+    {
+      "subject": "A04",
+      "test_acc": 15.277777777777779,
+      "best_val_acc": 43.16702819956616
+    },
+    {
+      "subject": "A05",
+      "test_acc": 23.26388888888889,
+      "best_val_acc": 39.351851851851855
+    },
+    {
+      "subject": "A06",
+      "test_acc": 25.34722222222222,
+      "best_val_acc": 41.2037037037037
+    },
+    {
+      "subject": "A07",
+      "test_acc": 30.208333333333332,
+      "best_val_acc": 38.657407407407405
+    },
+    {
+      "subject": "A08",
+      "test_acc": 29.166666666666668,
+      "best_val_acc": 37.96296296296296
+    },
+    {
+      "subject": "A09",
+      "test_acc": 32.986111111111114,
+      "best_val_acc": 35.648148148148145
+    }
+  ]
+}
